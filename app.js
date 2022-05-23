@@ -2,6 +2,7 @@ const express = require('express');
 const cities = require('./node_modules/country-json/src/country-by-capital-city.json');
 const url = require('url');
 const app = express();
+const port = 3000;
 
 
 // http://localhost:3000/capital?country=latvia
@@ -18,7 +19,7 @@ app.get(['/', '/capital'], function (req, res) {
     const objCount = country_search(country);
     res.send(`Capital of ${objCount.country} is ${objCount.city}`);
   }
-}).listen(3000, 'localhost', console.log('Сервер работает на порту 3000'));
+}).listen(port, 'localhost', console.log(`Server running on port: ${port}`));
 
 
 
